@@ -4,7 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
-const token = 'EAAZASbUpV01YBAB3pPaNfpYatMPotpwL4yW6DZBriodmduOowqyDcTygfTawrNVbjtBkfl4lofCl2gojZChDamrqVxZCtngik8ZAJgII9qmLeeAZCdthXl1ivbp5tWaeHyDZB6oyybjF6WjC45eXTKVRAk0SGwkuy6bZAUoLObwSCwZDZD'
+const token = 'EAADT49PCZBRABAOyyZCRUepvF9ti9xWLSP0UBdZABPkRst4LZAZBuKkephknPNix7jEQ1xklFnAAIkhyncvVyBpYjeNZBXqlOmBvxrZBkvPVq6WeCjiSSKiN6l7Xwqq1ZCm7wzo31oo3W8w7JaGpDZCxEDMn8ZAdL246t8HIBiGODAUgZDZD'
 app.set('port', (process.env.PORT || 5000))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -25,7 +25,7 @@ app.post('/webhook/', function (req, res) {
     if (event.message && event.message.text) {
       let text = event.message.text
       var location = event.message.text
-      var weatherEndpoint = 'http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&units=metric&appid=ea5272e74853f242bc0efa9fef3dd9f3'
+      var weatherEndpoint = 'http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&units=metric&appid=7e60aa1cf5b6a079f2ffe3d159bdb211'
       request({
         url: weatherEndpoint,
         json: true
