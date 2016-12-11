@@ -99,7 +99,7 @@ function sendTextMessage(recipientId, messageText) {
 
 function callSendAPI(messageData) {
   request({
-    uri: 'https://graph.facebook.com/v2.6/me/messages',
+    uri: 'api.openweathermap.org/data/2.5/weather?q=London,uk',
     qs: { access_token: 'EAADT49PCZBRABAMMW5S9TBhwLtIGs201uBYLDV6lvIoAZCOFl80hsY9D6zfYba6lwfateLEZB3znMn3PIItl99pvye3FnQ1qeBBqxB7fjqZAYbboRN7pkxiVF66TYpBhY2gqX5xHpK3KXNdMq44t81RwfRLgFJNyNMVivZATkEwZDZD' },
     method: 'POST',
     json: messageData
