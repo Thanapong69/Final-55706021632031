@@ -1,21 +1,22 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var request = require('request')
-var app = express()
+'use strict'
 
-app.use(bodyParser.json())
-app.set('port', (process.env.PORT || 4000))
+const express = require('express')
+const bodyParser = require('body-parser')
+const request = require('request')
+const app = express()
+const token = 'EAAZASbUpV01YBAB3pPaNfpYatMPotpwL4yW6DZBriodmduOowqyDcTygfTawrNVbjtBkfl4lofCl2gojZChDamrqVxZCtngik8ZAJgII9qmLeeAZCdthXl1ivbp5tWaeHyDZB6oyybjF6WjC45eXTKVRAk0SGwkuy6bZAUoLObwSCwZDZD'
+app.set('port', (process.env.PORT || 5000))
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-
-app.get('/webhook', function(req, res) {
-  var key = 'EAADT49PCZBRABAMMW5S9TBhwLtIGs201uBYLDV6lvIoAZCOFl80hsY9D6zfYba6lwfateLEZB3znMn3PIItl99pvye3FnQ1qeBBqxB7fjqZAYbboRN7pkxiVF66TYpBhY2gqX5xHpK3KXNdMq44t81RwfRLgFJNyNMVivZATkEwZDZD'
-  if (req.query['hub.verify_token'] === key) {
+app.get('/', function (req, res) {
+  res.send('test test')
+})
+app.get('/webhook/', function (req, res) {
+  if (req.query['hub.verify_token'] === '123456') {
     res.send(req.query['hub.challenge'])
   }
   res.send('Error, wrong token')
 })
-
 app.post('/webhook/', function (req, res) {
   let messaging_events = req.body.entry[0].messaging
   for (let i = 0; i < messaging_events.length; i++) {
@@ -121,3 +122,7 @@ function sendGenericMessage (sender) {
     }
   })
 }
+
+app.listen(app.get('port'), function () {
+  console.log('running on port', app.get('port'))
+})
