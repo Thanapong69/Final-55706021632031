@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.get('/webhook', function(req, res) {
-  var key = 'EAAZAdh4yZAgXcBAMdX9U6kUTd2Ow5oWyg6QMVy95UXvbnfALZCvovTiflTqHGhMChSqzdLyGWgIg1Sivp4dW8H5my5EIxt4TEZB3hchmNcDOkZBZBZC6aan9IVFhiVlYag6wRB6ZBsHlEFCpZAdAnCUSvLrXvF16AZC6U0Pf9pyqneuwZDZD'
+  var key = 'EAADT49PCZBRABAMMW5S9TBhwLtIGs201uBYLDV6lvIoAZCOFl80hsY9D6zfYba6lwfateLEZB3znMn3PIItl99pvye3FnQ1qeBBqxB7fjqZAYbboRN7pkxiVF66TYpBhY2gqX5xHpK3KXNdMq44t81RwfRLgFJNyNMVivZATkEwZDZD'
   if (req.query['hub.verify_token'] === key) {
     res.send(req.query['hub.challenge'])
   }
@@ -100,7 +100,7 @@ function sendTextMessage(recipientId, messageText) {
 function callSendAPI(messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: 'EAAZAdh4yZAgXcBABVjIsKHFWDvLmeuARXQYDYIuonG4MUnRi2DLZBsVuJZAnHhEo5I0XjSmb9Qc7x2ZAmK9JqCksGRI7hal2B4sufmaQjcxoyiXAmKZCzMqdfGofCQccMMIyTpUAimRbOsEQagekugUJx3aFadcKneB7fT74uZCaQZDZD' },
+    qs: { access_token: 'EAADT49PCZBRABAMMW5S9TBhwLtIGs201uBYLDV6lvIoAZCOFl80hsY9D6zfYba6lwfateLEZB3znMn3PIItl99pvye3FnQ1qeBBqxB7fjqZAYbboRN7pkxiVF66TYpBhY2gqX5xHpK3KXNdMq44t81RwfRLgFJNyNMVivZATkEwZDZD' },
     method: 'POST',
     json: messageData
 
