@@ -99,7 +99,7 @@ function sendTextMessage(recipientId, messageText) {
 
 function callSendAPI(messageData) {
   request({
-    uri: 'api.openweathermap.org/data/2.5/weather?q=London,uk',
+    uri: 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=7e60aa1cf5b6a079f2ffe3d159bdb211',
     qs: { access_token: 'EAADT49PCZBRABAMMW5S9TBhwLtIGs201uBYLDV6lvIoAZCOFl80hsY9D6zfYba6lwfateLEZB3znMn3PIItl99pvye3FnQ1qeBBqxB7fjqZAYbboRN7pkxiVF66TYpBhY2gqX5xHpK3KXNdMq44t81RwfRLgFJNyNMVivZATkEwZDZD' },
     method: 'POST',
     json: messageData
