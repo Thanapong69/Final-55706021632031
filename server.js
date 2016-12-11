@@ -46,6 +46,11 @@ app.post('/webhook', function (req, res) {
   }
 });
 
+
+$uri = "http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=7e60aa1cf5b6a079f2ffe3d159bdb211";
+$response = \Httpful\Request::get($uri)->send();
+echo $response;
+
 function receivedMessage(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
