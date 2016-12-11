@@ -35,7 +35,7 @@ app.post('/webhook/', function (req, res) {
           sendTextMessage(sender, "อากาศใน " + location + " วันนี้ " + condition.temp+" องศาเซลเซียส" );
         } catch(err) {
           console.error('error caught', err);
-          sendTextMessage(sender, "There was an error.");
+          sendTextMessage(sender, "ไม่มีเมืองที่ต้องการค้นหา");
         }
       })
 
