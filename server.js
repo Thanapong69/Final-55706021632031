@@ -26,7 +26,20 @@ app.post('/webhook', function (req, res) {
     data.entry.forEach(function(entry) {
       var pageID = entry.id;
       var timeOfEvent = entry.time;
-
+var location = event.message.text
+      var weatherEndpoint = 'http://api.openweathermap.org/data/2.5/weather?q=' +location+ '&units=metric&appid=7e60aa1cf5b6a079f2ffe3d159bdb211'
+      request({
+        url: weatherEndpoint,
+        json: true
+      }, function(error, response, body) {
+        try {
+          var condition = body.main;
+          sendTextMessage(sender, "Today is " + condition.temp + "Celsius in " + location);
+        } catch(err) {
+          console.error('error caught', err);
+          sendTextMessage(sender, "There was an error.");
+        }
+      });
       // Iterate over each messaging event
       entry.messaging.forEach(function(event) {
         if (event.message) {
